@@ -1,0 +1,16 @@
+*.har
+*.pyc
+*.so
+.DS_Store
+.idea/
+.python-version
+.vscode/
+__pycache__/
+logs/
+output/
+reports/
+*.7z
+*.har
+# plugin
+debugtalk.bin
+debugtalk.so

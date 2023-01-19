@@ -1,0 +1,2096 @@
+{
+    "config": {
+        "name": "testcase description",
+        "base_url":"http://192.168.33.5:9100",
+        "variables": {
+            "getinfo": "${get_backend_info(YL)}",
+            "connect_sid": "${get_connect_sid(YL)}",
+            "headers_cookie": "${get_headers_cookie(YL)}"
+        }
+    },
+    "teststeps": [
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/default",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Cache-Control": "max-age=0",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-None-Match": "W/\"aa34-HsGmM39aySXStn2EgbQKrg+ckP8\"",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "text/html; charset=utf-8",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/css/mobiscroll.css",
+                "params": {
+                    "v": "1"
+                },
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"3256-1858122eefc\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/validateCode",
+                "headers": {
+                    "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "image/bmp",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/jquery-1.10.2.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"16bb3-1858122ef1c\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/html5shiv.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"97d-1858122ef1b\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/respond.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"fcf-1858122ef1f\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/md5.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"2465-1858122ef25\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/common.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Mon, 16 Jan 2023 03:50:05 GMT",
+                    "If-None-Match": "W/\"8ef5-185b8b2d1c8\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/font-awesome/fonts/fontawesome-webfont.woff",
+                "params": {
+                    "v": "4.1.0"
+                },
+                "headers": {
+                    "Referer": ""
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "font/woff",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/css/themes/style1/bj.jpg",
+                "headers": {
+                    "Referer": ""
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "image/jpeg",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/css/themes/style1/bj.jpg",
+                "headers": {
+                    "Referer": ""
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "image/jpeg",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/validateCode",
+                "params": {
+                    "d": "0.9577218888578622"
+                },
+                "headers": {
+                    "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "image/bmp",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/images/favicon/favicon.ico",
+                "headers": {
+                    "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"10be-1858122ef0c\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "POST",
+                "url": "/login",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Content-Length": "75",
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "Host": "192.168.33.5:9100",
+                    "Origin": "",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                },
+                "body": {
+                    "count": "0",
+                    "name": "guanli",
+                    "password": "03f9aeef097033d251225d1247f9dd65",
+                    "validateCode": ""
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "text/plain",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/default",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-None-Match": "W/\"1e5a-EQCdxbbRttrGkTxwuv3UHh9ZtMQ\"",
+                    "Referer": "/default",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "text/html; charset=utf-8",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/css/mobiscroll.css",
+                "params": {
+                    "v": "1"
+                },
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"3256-1858122eefc\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/images/pic.png",
+                "headers": {
+                    "Accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"974-1858122ef0d\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/jquery-1.10.2.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"16bb3-1858122ef1c\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/jquery-migrate-1.2.1.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"1c1f-1858122ef1c\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/bootstrap/js/bootstrap.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"7c09-1858122ef3c\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"c90-1858122ef38\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/html5shiv.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"97d-1858122ef1b\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/respond.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"fcf-1858122ef1f\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/metisMenu/jquery.metisMenu.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"8e2-1858122ef55\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/slimScroll/jquery.slimscroll.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"34de-1858122ef59\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/jquery-cookie/jquery.cookie.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"bfa-1858122ef50\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/iCheck/icheck.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"1343-1858122ef42\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/iCheck/custom.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"854-1858122ef42\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/jquery-notific8/jquery.notific8.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"d37-1858122ef53\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/jquery.menu.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"fb7-1858122ef1e\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/holder/holder.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"3087-1858122ef42\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/responsive-tabs/responsive-tabs.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"136d-1858122ef59\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/jquery-news-ticker/jquery.newsTicker.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"e53-1858122ef53\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/moment/moment.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"197d9-1858122ef56\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"b6e5-1858122ef37\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/bootstrap-daterangepicker/daterangepicker.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"85b5-1858122ef38\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"594d-1858122ef38\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/common.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Mon, 16 Jan 2023 03:50:05 GMT",
+                    "If-None-Match": "W/\"8ef5-185b8b2d1c8\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/usersgrant.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"32e-1858122ef34\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/main.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"482f-1858122ef1e\"",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/welcome",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-None-Match": "W/\"3f8-IvHq3hsdm3sOMT/ifKheMfPwBBk\"",
+                    "Referer": "/default",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/font-awesome/fonts/fontawesome-webfont.woff",
+                "params": {
+                    "v": "4.1.0"
+                },
+                "headers": {
+                    "Referer": ""
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "font/woff",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/animate.css/animate.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"feea-1858122ef37\"",
+                    "Referer": "/welcome",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/iCheck/skins/all.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"61c-1858122ef42\"",
+                    "Referer": "/welcome",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/css/themes/style1/pink-violet.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"341c6-1858122ef04\"",
+                    "Referer": "/welcome",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/css/style-responsive.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"1f6f-1858122eefc\"",
+                    "Referer": "/welcome",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/getCurPageGrant",
+                "params": {
+                    "powerid": ""
+                },
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "Referer": "/default",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "text/plain",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/iCheck/skins/minimal/all.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"3467-1858122ef43\"",
+                    "Referer": "/resource/vendors/iCheck/skins/all.css",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/iCheck/skins/square/all.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"33d8-1858122ef43\"",
+                    "Referer": "/resource/vendors/iCheck/skins/all.css",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/iCheck/skins/flat/all.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"2dae-1858122ef42\"",
+                    "Referer": "/resource/vendors/iCheck/skins/all.css",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/iCheck/skins/line/all.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"4736-1858122ef43\"",
+                    "Referer": "/resource/vendors/iCheck/skins/all.css",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/iCheck/skins/polaris/polaris.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"52e-1858122ef43\"",
+                    "Referer": "/resource/vendors/iCheck/skins/all.css",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/iCheck/skins/futurico/futurico.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"4be-1858122ef42\"",
+                    "Referer": "/resource/vendors/iCheck/skins/all.css",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/winAndLoseReport",
+                "headers": {
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-None-Match": "W/\"2364-cG00V3ePlPoiCVddKheC5XWUgEk\"",
+                    "Referer": "/default",
+                    "Upgrade-Insecure-Requests": "1",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/datepicker/jquery.datetimepicker.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"264a-1858122ef3f\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/bootstrap/js/bootstrap-table.css",
+                "headers": {
+                    "Accept": "text/css,*/*;q=0.1",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"1c7f-1858122ef3b\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/js/jquery-1.10.2.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"16bb3-1858122ef1c\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/bootstrap/js/bootstrap.min.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"7c09-1858122ef3c\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/moment/moment.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"197d9-1858122ef56\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/bootstrap/js/bootstrap-table.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"1afd9-1858122ef3c\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/bootstrap/js/bootstrap-table-zh-CN.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"4cd-1858122ef3b\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/datepicker/jquery.datetimepicker.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"cb21-1858122ef3f\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/common.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Mon, 16 Jan 2023 03:50:05 GMT",
+                    "If-None-Match": "W/\"8ef5-185b8b2d1c8\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/usersgrant.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Thu, 05 Jan 2023 08:53:48 GMT",
+                    "If-None-Match": "W/\"32e-1858122ef34\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/sysmanage/winandlosereport.js",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "If-Modified-Since": "Mon, 16 Jan 2023 03:50:05 GMT",
+                    "If-None-Match": "W/\"4b72-185b8b2d1cb\"",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 304,
+                    "msg": "assert response status code"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/resource/vendors/font-awesome/fonts/fontawesome-webfont.woff",
+                "params": {
+                    "v": "4.1.0"
+                },
+                "headers": {
+                    "Referer": ""
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "font/woff",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/getCurPageGrant",
+                "params": {
+                    "powerid": "81"
+                },
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "text/plain",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/winAndLoseReport/getGameType1",
+                "headers": {
+                    "Accept": "*/*",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Host": "192.168.33.5:9100",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "text/plain;charset=utf-8",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        },
+        {
+            "name": "",
+            "request": {
+                "method": "GET",
+                "url": "/winAndLoseReport/InitData",
+                "params": {
+                    "GameUserNO": "",
+                    "RoomType": "",
+                    "_": "1674106333494",
+                    "accounts": "",
+                    "beginDate": "",
+                    "endDate": "",
+                    "kindId": "",
+                    "limit": "20",
+                    "offset": "0",
+                    "serverId": "",
+                    "total": "0"
+                },
+                "headers": {
+                    "Accept": "application/json, text/javascript, */*; q=0.01",
+                    "Accept-Encoding": "gzip, deflate",
+                    "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6",
+                    "Connection": "keep-alive",
+                    "Content-Type": "application/json",
+                    "Host": "192.168.33.5:9100",
+                    "Referer": "/winAndLoseReport",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                "cookies": {
+                    "connect.sid": "$connect_sid"
+                }
+            },
+            "validate": [
+                {
+                    "check": "status_code",
+                    "assert": "equals",
+                    "expect": 200,
+                    "msg": "assert response status code"
+                },
+                {
+                    "check": "headers.\"Content-Type\"",
+                    "assert": "equals",
+                    "expect": "text/plain;charset=utf-8",
+                    "msg": "assert response header Content-Type"
+                }
+            ]
+        }
+    ]
+}
