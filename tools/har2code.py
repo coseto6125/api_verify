@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-17 13:15:54
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-18 18:18:44
+# @Last Modified time: 2023-01-30 15:59:09
 from collections import defaultdict
 from keyword import kwlist
 from os import remove, system
@@ -150,9 +150,9 @@ def parse_file(file, base_url, project="DATA"):
     # for i in (".api.json", ".json"):
     #     remove(file.replace(".har", i))
 
-from lib.check_timer import check_timer
+# from lib.check_timer import check_timer
 
-@check_timer()
+# @check_timer()
 def main():
 
     file_path = "192.168.33.5_all.har"

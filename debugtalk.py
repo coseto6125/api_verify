@@ -2,12 +2,12 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:49:28
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-19 18:46:43
+# @Last Modified time: 2023-01-30 13:57:31
 import asyncio
 import logging
 
 from lib.basic_aiohttp import AioConnection
-from lib.local_redis import redis_get, redis_mset_all
+from lib.local_redis import redis_get, redis_set
 
 # # commented out function will be filtered
 # # def get_headers():
@@ -15,10 +15,10 @@ from lib.local_redis import redis_get, redis_mset_all
 
 
     # platform = "YL"
-
 def get_backend_info(platform:str)->1:
     session = asyncio.run(AioConnection(platform)._login())
-    redis_mset_all(dict(zip((f'{platform}_connect_sid',f'{platform}_headers_cookie'),session)))
+    # redis_mset_all(dict(zip((f'{platform}_connect_sid',f'{platform}_headers_cookie'),session)))
+    redis_set(f'{platform}_connect_sid',session)
     return 1
 
 def get_connect_sid(platform:str)->str:
@@ -26,7 +26,6 @@ def get_connect_sid(platform:str)->str:
 
 def get_headers_cookie(platform:str)->str:
     return redis_get(f'{platform}_headers_cookie',True)
-
 
 def setup_hook_example(name) -> str:
     logging.warning("setup_hook_example")

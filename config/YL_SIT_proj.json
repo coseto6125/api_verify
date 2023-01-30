@@ -1,0 +1,11 @@
+{
+    "project_name": "YL_SIT",
+    "config": {
+        "base_url": "http://192.168.33.5:9100",
+        "variables": {
+            "_getinfo": "${get_backend_info(YL)}",
+            "connect_sid": "${get_connect_sid(YL)}",
+            "headers_cookie": "${get_headers_cookie(YL)}"
+        }
+    }
+}

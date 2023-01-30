@@ -2,10 +2,12 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 12:39:39
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-19 18:43:30
+# @Last Modified time: 2023-01-30 13:58:45
 from contextlib import suppress
 from hashlib import md5
 from os.path import isfile
+
+from orjson import dumps
 
 from aiohttp import ClientSession
 from aiohttp_retry import ExponentialRetry, RetryClient
@@ -66,6 +68,7 @@ class AioConnection:
                 resp2 = await rep.text()
                 if '{"code":0' not in resp2:
                     raise ConnectionError(resp2)
+                a = '; '.join(f'{v.value}' for k,v in resp.cookies.items())
 
                 # session._client.cookie_jar.save(f".temp/{self.platform}/session_aio.tmp")
                 # register(self._last_work)
@@ -76,15 +79,15 @@ class AioConnection:
             # url = '/winAndLoseReport/InitData?beginDate=&endDate=&kindId=&accounts=&serverId=&limit=20&offset=0&total=0&GameUserNO=&RoomType=&_=1674103582922'
             # async with session.get(url,cookies=resp.cookies,) as rep:
             #     resp2 = await rep.text()
-            async with session.get("/default") as r2:
-                await r2.text()
-                a = r2.cookies['connect.sid'].value
-            async with session.get("/CheckLogin") as r2:
-                await r2.text()
-                b = next(i[1] for i in r2.raw_headers if i[0] == b'Set-Cookie').decode("utf-8")
+            # async with session.get("/default") as r2:
+            #     await r2.text()
+            #     a = r2.cookies['connect.sid'].value
+            # async with session.get("/CheckLogin") as r2:
+            #     await r2.text()
+            #     b = next(i[1] for i in r2.raw_headers if i[0] == b'Set-Cookie').decode("utf-8")
         with suppress(Exception):
             await session.close()
-        return a,b
+        return a
 
 # if __name__ == '__main__':
 #     m = asyncio.run(AioConnection('YL')._login())
