@@ -20,11 +20,15 @@
 | [.debugtalk_gen.py](.debugtalk_gen.py)   | hpr run 時自動生成               |
 | [.gitignore](.gitignore)                 | ignore file                      |
 | [README.MD](README.MD)                   | this file                        |
-| [_.env](_.env)                           | env file                         |
-| [__init__.py](__init__.py)         | init file                        |
+| [_.env](_.env)                           | env file - 暫時沒用到           |
+| [\_\_init__.py](__init__.py)         | init file - 暫時沒用到           |
 | [conver_har2case.py](conver_har2case.py) | 轉換用檔案                       |
 | [debugtalk.py](debugtalk.py)             | 插件檔案                         |
 | [hrp.exe](hrp.exe)                       | hpr 執行檔                       |
 | [profile.yaml](profile.yaml)             | 改寫 har 用 yaml                 |
 | [requirements.txt](requirements.txt)     | 大雜燴 requirements             |
 | [run_test.py](run_test.py)               | 執行驗證用                       |
+
+- 暫時沒用到
+
+- 暫時沒用到
