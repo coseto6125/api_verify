@@ -29,6 +29,3 @@
 | [requirements.txt](requirements.txt)     | 大雜燴 requirements             |
 | [run_test.py](run_test.py)               | 執行驗證用                       |
 
-- 暫時沒用到
-
-- 暫時沒用到
