@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:59:56
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-30 16:20:04
+# @Last Modified time: 2023-01-30 16:29:34
 from os import system
 from urllib.parse import unquote
 
@@ -37,4 +37,4 @@ def convert(filter=False):
         with open(f'./testcases/{output_path}_test.json','w',encoding='utf-8-sig') as f:
             f.write(dumps(base,option=OPT_INDENT_2).decode('utf-8-sig'))
 
-convert(True)
+convert(False)

@@ -1,6 +1,6 @@
 ﻿{
   "config": {
-    "name": "01_報表管理filter=True",
+    "name": "01_報表管理filter=False",
     "base_url": "http://192.168.33.5:9100",
     "variables": {
       "_getinfo": "${get_backend_info(YL)}",

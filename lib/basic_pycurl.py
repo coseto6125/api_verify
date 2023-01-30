@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2022-03-15 17:39:24
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-19 12:42:08
+# @Last Modified time: 2023-01-30 16:38:12
 import sys
 
 sys.path.append("C:\Python311\Scripts")
@@ -30,8 +30,8 @@ class BackendSession:
         C = Curl()
         C.setopt(C.TIMEOUT, 60)
         C.setopt(C.CONNECTTIMEOUT, 0)
-        C.setopt(C.COOKIEFILE, f"session.tmp")
-        C.setopt(C.COOKIEJAR, f"session.tmp")
+        C.setopt(C.COOKIEFILE, "session.tmp")
+        C.setopt(C.COOKIEJAR, "session.tmp")
         C.setopt(C.FOLLOWLOCATION, True)
         C.setopt(C.SSL_VERIFYPEER, 0)
         C.setopt(C.SSL_VERIFYHOST, 0)

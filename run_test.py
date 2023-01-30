@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 18:28:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-30 15:42:24
+# @Last Modified time: 2023-01-30 16:32:17
 from os import listdir, path, rename,system
 from re import findall
 from subprocess import PIPE, check_output, run
@@ -23,7 +23,12 @@ REPORT_PATH = './reports/'
 
 
 def rename_report():
-    file_path = findall(r'\\\\(.*)"',result.stderr.decode().splitlines()[-2])[-1]
+    try:
+        file_path = findall(r'\\\\(.*)"',result.stderr.decode().splitlines()[-2])[-1]
+    except IndexError as e:
+        for res in result.stderr.decode().splitlines()[-10:]:
+            print(res)
+        raise IndentationError(res) from e
     # file_path = sorted(listdir(REPORT_PATH),key=lambda x: path.getmtime(path.join(REPORT_PATH, x)))[-1]
     timestamp_file = file_path[7:-5]
     timestamp_srft = strftime("%Y-%m-%d_%H-%M-%S",localtime(int(timestamp_file)))
