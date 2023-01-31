@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:59:56
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-30 18:32:04
+# @Last Modified time: 2023-01-31 10:27:40
 from os import system
 from urllib.parse import unquote
 
@@ -42,4 +42,4 @@ def convert(file_list,filter=False):
             f.write(dumps(base, option=OPT_INDENT_2).decode("utf-8-sig"))
 
 file_list = ["./har/YL_SIT_01_報表管理.har"]
-convert(file_list,False)
+convert(file_list)
