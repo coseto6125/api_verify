@@ -2,12 +2,10 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 12:39:39
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-30 13:58:45
+# @Last Modified time: 2023-01-31 10:24:16
 from contextlib import suppress
 from hashlib import md5
 from os.path import isfile
-
-from orjson import dumps
 
 from aiohttp import ClientSession
 from aiohttp_retry import ExponentialRetry, RetryClient
@@ -23,7 +21,7 @@ class AioConnection:
         self.is_session_tmp = False
         self.platform = platform
         self.cookies = None
-        self.url = BACKEND_CONFIG[platform]['url']
+        self.url = BACKEND_CONFIG[platform]["url"]
         self.pl_info = BACKEND_CONFIG[platform]
 
     def session(self) -> RetryClient:
@@ -68,7 +66,7 @@ class AioConnection:
                 resp2 = await rep.text()
                 if '{"code":0' not in resp2:
                     raise ConnectionError(resp2)
-                a = '; '.join(f'{v.value}' for k,v in resp.cookies.items())
+                a = "; ".join(f"{v.value}" for k, v in resp.cookies.items())
 
                 # session._client.cookie_jar.save(f".temp/{self.platform}/session_aio.tmp")
                 # register(self._last_work)
@@ -88,6 +86,7 @@ class AioConnection:
         with suppress(Exception):
             await session.close()
         return a
+
 
 # if __name__ == '__main__':
 #     m = asyncio.run(AioConnection('YL')._login())

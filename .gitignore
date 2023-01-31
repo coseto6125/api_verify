@@ -1,5 +1,6 @@
 *.pyc
 *.so
+.pytest_cache
 .DS_Store
 .idea/
 .python-version
@@ -14,4 +15,4 @@ reports/
 debugtalk.bin
 debugtalk.so
 har/*.json
-pyenv
+!*/.gitkeep
