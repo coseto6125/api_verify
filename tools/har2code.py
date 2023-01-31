@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-17 13:15:54
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-31 13:19:45
+# @Last Modified time: 2023-01-31 15:55:41
 from collections import defaultdict
 from keyword import kwlist
 from os import remove, system
@@ -44,50 +44,49 @@ def parse_file(file, base_url, project="DATA"):
 
     r = dict(sorted(r.items()))
     for k in r:
-        split_k = k.split('_')
-        if len(split_k)==1:
+        split_k = k.split("_")
+        if len(split_k) == 1:
             all_api[k] = []
         else:
             all_api[split_k[0]].append(split_k[-1])
 
-
-
     def generate_dataclass(data: dict, class_name: str = "Data", ident: int = 0) -> str:
         # if class_name == 'getGameType': # @ debug
         #     ident = 4
-        global class_list,KWLIST,r
+        global class_list, KWLIST, r
         class_template = "{}@dataclass\n{}class {}(ApiRequest):\n"
         fields = ""
         add_class = ""
-        indent = " " * (m if 'api' in data and (m:=4*(data['api'].count('/')-1)) >=ident else ident)
+        indent = " " * (m if "api" in data and (m := 4 * (data["api"].count("/") - 1)) >= ident else ident)
         indent_base = " " * ident
-        combine_indent = indent+indent_base
+        combine_indent = indent + indent_base
         field_template = '{}{} = "{}"\n'
         commit = "{}{} ({}) : example( {} )\n"
         none_str = "=None, "
 
-        class_name_list = class_name.split('_')
+        class_name_list = class_name.split("_")
         class_name = class_name_list[-1]
         if class_name in KWLIST:
-            class_name = f'{class_name}_'
+            class_name = f"{class_name}_"
 
         if class_name_list[0] in class_list and class_name != class_name_list[0]:
-            indent*=2
+            indent *= 2
 
         if class_name not in class_list:
             class_list.add(class_name)
             if len(class_name_list) == 1 and class_name != project and all_api[class_name]:
-                slash = '\n'
+                slash = "\n"
                 sub_class_code = f'{combine_indent}"""\n'
                 sub_class_code += f"{combine_indent}api_list:\n"
-                sub_class_code += f"{indent + indent_base * 2}{(f' ,{slash}{indent}{indent_base * 2}').join(all_api[class_name])}\n"
+                sub_class_code += (
+                    f"{indent + indent_base * 2}{(f' ,{slash}{indent}{indent_base * 2}').join(all_api[class_name])}\n"
+                )
                 sub_class_code += f'{combine_indent}"""\n'
                 fields += sub_class_code
 
-
         if class_name_list[0] not in class_list:
             add_class = class_template.format(indent, indent, class_name_list[0])
-            indent*=2
+            indent *= 2
 
         for key, value in data.items():
             if isinstance(value, dict):
@@ -104,10 +103,10 @@ def parse_file(file, base_url, project="DATA"):
                         value_type = type(v).__name__
                         if isinstance(v, str) and v.isnumeric():
                             value_type = "int|bool" if int(v) in range(-1, 2) else "int"
-                        sub_class_code += commit.format(indent+indent_base*2 , k, value_type, v)
+                        sub_class_code += commit.format(indent + indent_base * 2, k, value_type, v)
                     sub_class_code += f'{indent+indent_base}"""\n'
                 else:
-                    sub_class_name = key #"".join(i.capitalize() for i in key.split("_"))
+                    sub_class_name = key  # "".join(i.capitalize() for i in key.split("_"))
                     sub_class_code = generate_dataclass(value, sub_class_name, ident + 4)
                 fields += sub_class_code
                 flag = True
@@ -120,13 +119,13 @@ def parse_file(file, base_url, project="DATA"):
                     else:
                         case = none_str.join(i for i in m if i)
                     init = "{}def __init__(self,{}=None):"
-                    fields += init.format(indent+indent_base, case)
+                    fields += init.format(indent + indent_base, case)
                     if case_spec:
                         kas = "{" + ",".join(f'"{v}":{i}' for i, v in zip(case_spec, m.keys())) + "}"
                     else:
                         kas = "{" + ",".join(f'"{i}":{i}' for i in m if i != "") + "}"
                     fields += f"\n{indent+indent_base*2}self.data = {kas}\n"
-                ident2 = ' '*4*(value['api'].count('/')+1) if 'api' in value else indent+indent_base
+                ident2 = " " * 4 * (value["api"].count("/") + 1) if "api" in value else indent + indent_base
                 for k, v in value.items():
                     if k == "data":
                         k = "params"
@@ -136,7 +135,7 @@ def parse_file(file, base_url, project="DATA"):
                         "headers",
                         "json",
                     }:
-                        fields += field_template.format(ident2,k, v)
+                        fields += field_template.format(ident2, k, v)
                     if flag and key in {"params", "data", "json"}:
                         flag = False
                         fields += f'{ident2}data_type = "{key}"\n'
@@ -149,6 +148,7 @@ def parse_file(file, base_url, project="DATA"):
 
     # for i in (".api.json", ".json"):
     #     remove(file.replace(".har", i))
+
 
 # from lib.check_timer import check_timer
 

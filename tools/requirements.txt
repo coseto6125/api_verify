@@ -40,7 +40,7 @@ dataclasses-json==0.5.7
 debugpy==1.6.3
 decorator==5.1.1
 defusedxml==0.7.1
-demjson3==3.0.5
+demjson3==3.0.6
 dill==0.3.6
 docopt==0.6.2
 docutils==0.17.1
@@ -145,7 +145,7 @@ pycares==4.3.0
 pycodestyle==2.6.0
 pycparser==2.21
 pycryptodome==3.15.0
-pycurl @ https://download.lfd.uci.edu/pythonlibs/archived/pycurl-7.45.1-cp311-cp311-win_amd64.whl
+pycurl @ https://download.lfd.uci.edu/pythonlibs/archived/pycurl‑7.45.1‑cp311‑cp311‑win_amd64.whl
 pydantic==1.8.2
 pydocstyle==6.1.1
 PyExecJS==1.5.1
