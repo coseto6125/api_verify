@@ -16,3 +16,4 @@ debugtalk.bin
 debugtalk.so
 har/*.json
 !*/.gitkeep
+pyenv/
