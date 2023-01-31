@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 18:28:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-30 16:32:17
+# @Last Modified time: 2023-01-31 10:36:07
 from os import listdir, path, rename,system
 from re import findall
 from subprocess import PIPE, check_output, run
