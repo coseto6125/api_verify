@@ -2,8 +2,8 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 18:28:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-30 16:32:17
-from os import listdir, path, rename,system
+# @Last Modified time: 2023-01-31 13:00:19
+from os import listdir, path, rename, system
 from re import findall
 from subprocess import PIPE, check_output, run
 from time import localtime, strftime
@@ -13,7 +13,7 @@ from lxml.etree import HTML
 # cmd = r'hrp run testcases\YL_SIT_01_測試.json -g -c'
 # cmd = r'hrp run testcases_base\YL_01_測試_test.json -g -c'
 # cmd = r'hrp run testcases\YL_SIT_02_報表管理_test.json -g -c'
-cmd = r'hrp run testcases\YL_SIT_01_報表管理_test.json -g -c'
+cmd = '.\\hrp.exe run testcases\YL_SIT_01_報表管理_test.json -g -c --venv ./pyenv/'
 # system(cmd)
 result = run(cmd, stdout=PIPE, stderr=PIPE) #,capture_output=True
 

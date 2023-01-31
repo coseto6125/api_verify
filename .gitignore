@@ -14,3 +14,4 @@ reports/
 debugtalk.bin
 debugtalk.so
 har/*.json
+pyenv
