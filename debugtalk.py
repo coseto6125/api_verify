@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:49:28
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-31 15:55:20
+# @Last Modified time: 2023-02-01 17:53:48
 import asyncio
 import logging
 
@@ -16,10 +16,13 @@ from lib.local_redis import redis_get, redis_set
 
 # platform = "YL"
 def get_backend_info(platform: str) -> 1:
+    if redis_get(f"{platform}_connect_sid", True) is not None:
+        return 0
     session = asyncio.run(AioConnection(platform)._login())
-    redis_set(f"{platform}_connect_sid", session)
+    redis_set(f"{platform}_connect_sid", session,600000)
     return 1
 
+get_backend_info('YL')
 
 def get_connect_sid(platform: str) -> str:
     return redis_get(f"{platform}_connect_sid", True)

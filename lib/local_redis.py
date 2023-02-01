@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2022-12-19 16:05:21
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-11 02:08:06
+# @Last Modified time: 2023-02-01 17:52:33
 from functools import lru_cache
 from platform import uname
 
@@ -17,7 +17,7 @@ except ImportError:
     from tomli import loads as tomlLoads
 
 
-def _parse(data,raw=False):
+def _parse(data, raw=False):
     """
     > 如果数据是有效的 JSON，则返回解析后的 JSON。
     > 如果数据是有效的 TOML，则返回解析的 TOML。
@@ -47,9 +47,9 @@ def local_redis() -> ConnectionPool:
     return ConnectionPool(**data)
 
 
-def redis_set(key, value):
+def redis_set(key, value, timedelta=None):
     with Redis(**data) as r:
-        return r.set(key, value)
+        return r.set(key, value, timedelta)
 
 
 @lru_cache(maxsize=128)
@@ -61,7 +61,8 @@ def redis_get(key, raw=False):
 def redis_mget_all(key_list):  #
     with Redis(**data) as r:
         return [_parse(i) for i in r.mget(key_list)]
-    
+
+
 def redis_mset_all(key_list):  #
     with Redis(**data) as r:
         return r.mset(key_list)
