@@ -2,8 +2,8 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 18:28:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-31 15:55:07
-from os import rename, system
+# @Last Modified time: 2023-02-01 16:14:43
+from os import listdir, rename, system
 from re import findall
 from subprocess import PIPE, run
 from time import localtime, strftime
@@ -11,7 +11,7 @@ from time import localtime, strftime
 from lxml.etree import HTML
 
 
-def rename_report():
+def rename_report(result):
     try:
         file_path = findall(r'\\\\(.*)"', result.stderr.decode().splitlines()[-2])[-1]
     except IndexError as e:
@@ -35,8 +35,21 @@ def print_result(file_path):
     print(mk[1], "\n", mk[4])
 
 
-cmd = ".\\hrp.exe run testcases\YL_SIT_01_報表管理_test.json -g -c --venv ./pyenv/"
-result = run(cmd, stdout=PIPE, stderr=PIPE)  # ,capture_output=True
+def run_test(target_list):
+    file_list = set()
+    for target in target_list:
+        if target.split('.','.json'):
+            file_list.add(target)
+        else:
+            file_list.update({file for file in listdir(target) if file.endswith(".json")})
+    
+    cmd = ".\\hrp.exe run testcases\YL_SIT_01_報表管理_test.json -g -c --venv ./pyenv/"
+    result = run(cmd, stdout=PIPE, stderr=PIPE)  # ,capture_output=True
 
+    
+    print_result(rename_report(result))
+    
 REPORT_PATH = "./reports/"
-print_result(rename_report())
+
+file_list = ["har\YL_SIT_har","./har/YL_SIT_01_報表管理.har"]
+run_test(file_list)
