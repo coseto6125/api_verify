@@ -2,8 +2,8 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 18:28:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-01 16:15:12
-from os import listdir, rename, system
+# @Last Modified time: 2023-02-01 17:42:31
+from os import listdir, path, rename, system
 from re import findall
 from subprocess import PIPE, run
 from time import localtime, strftime
@@ -36,21 +36,22 @@ def print_result(file_path):
 
 
 def run_test(target_list):
-    file_list = set()
-    
-    for target in target_list:
-        if target.split('.','.json'):
-            file_list.add(target)
-        else:
-            file_list.update({file for file in listdir(target) if file.endswith(".json")})
-    
-    cmd = ".\\hrp.exe run testcases\YL_SIT_01_報表管理_test.json -g -c --venv ./pyenv/"
-    result = run(cmd, stdout=PIPE, stderr=PIPE)  # ,capture_output=True
+    # file_list = set()
 
-    
-    print_result(rename_report(result))
-    
+    # for target in target_list:
+    #     if target.split(".")[0] != "":
+    #         file_list.update({path.join(target, file) for file in listdir(target) if file.endswith(".json")})
+    #     if str(target).endswith(".json"):
+    #         file_list.add(target)
+    # file_params = " ".join(file_list)
+    file_params = " ".join(target_list)
+    cmd = f".\\hrp.exe run {file_params} -g -c --venv ./pyenv/"
+    # result = run(cmd, stdout=PIPE, stderr=PIPE)  # ,capture_output=True
+    # print_result(rename_report(result))
+    system(cmd)
+
+
 REPORT_PATH = "./reports/"
 
-file_list = ["har\YL_SIT_har","./har/YL_SIT_01_報表管理.har"]
+file_list = ["testcases\YL_SIT_case\YL_SIT_001_運營管理"]
 run_test(file_list)
