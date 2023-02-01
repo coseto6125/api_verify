@@ -2,16 +2,22 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:59:56
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-01 10:07:00
-from os import system
+# @Last Modified time: 2023-02-01 16:04:54
+from os import system,listdir
 from urllib.parse import unquote
-
 from orjson import OPT_INDENT_2, dumps, loads
 
 # system('hrp.exe convert ./testcases/YL_01_測試.json --to-pytest --output-dir ./testcases --profile ./config/profile.yaml')
 
 
-def convert(file_list, filter=False):
+def convert(target_list, filter=True):
+    file_list = set()
+    for target in target_list:
+        if target.endswith('.har'):
+            file_list.add(target)
+        else:
+            file_list.update({file for file in listdir(target) if file.endswith(".har")})
+            
     for file_path in file_list:
         platform = '_'.join(file_path.split('/')[-1].split('_')[:2])
         with open(f"./config/{file_path.split('/')[-1][:6]}_proj.json", "r", encoding="utf-8-sig") as f:
@@ -43,5 +49,5 @@ def convert(file_list, filter=False):
             f.write(dumps(base, option=OPT_INDENT_2).decode("utf-8-sig"))
 
 
-file_list = ["./har/YL_SIT_01_報表管理.har"]
+file_list = ["har\YL_SIT_har","./har/YL_SIT_01_報表管理.har"]
 convert(file_list)
