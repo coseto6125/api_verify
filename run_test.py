@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 18:28:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-01 16:14:43
+# @Last Modified time: 2023-02-01 16:15:12
 from os import listdir, rename, system
 from re import findall
 from subprocess import PIPE, run
@@ -37,6 +37,7 @@ def print_result(file_path):
 
 def run_test(target_list):
     file_list = set()
+    
     for target in target_list:
         if target.split('.','.json'):
             file_list.add(target)
