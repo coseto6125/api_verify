@@ -17,3 +17,4 @@ debugtalk.so
 har/*.json
 !*/.gitkeep
 pyenv/
+.debugtalk_gen.py
