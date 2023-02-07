@@ -28,3 +28,12 @@
 | [profile.yaml](profile.yaml)             | 改寫 har 用 yaml                   |
 | [requirements.txt](requirements.txt)     | ✅大雜燴 requirements             |
 | [run_test.py](run_test.py)               | ✅執行驗證用                       |
+
+## HAR命名規則
+
+* 資料夾命名規則
+* example: `har\YL_SIT_har`
+
+## TODO
+
+* 自動轉換時間

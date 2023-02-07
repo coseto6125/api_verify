@@ -1,0 +1,146 @@
+﻿{
+  "config": {
+    "name": "001_運營管理_廠商管理_編輯filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/company/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/company/GetList",
+        "params": {
+          "companyId": "21012"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/company/editCompany",
+      "request": {
+        "method": "POST",
+        "url": "/company/editCompany",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "abbreviation": "开元体育",
+          "companyPwd": "96e79218965eb72c92a549dd5a330112",
+          "companyid": "21012",
+          "id": "21012",
+          "mark": "",
+          "nickname": "开元体育",
+          "whiteip": ""
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/company/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/company/GetList",
+        "params": {
+          "companyId": "21012",
+          "limit": "50",
+          "nickname": "开元体育",
+          "offset": "0",
+          "selStatus": "-1"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/company/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/company/GetList",
+        "params": {
+          "companyId": "21012",
+          "limit": "50",
+          "nickname": "开元体育",
+          "offset": "0",
+          "selStatus": "-1"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    }
+  ]
+}
