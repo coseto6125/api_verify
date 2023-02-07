@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 12:39:39
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-31 10:24:16
+# @Last Modified time: 2023-02-02 09:51:15
 from contextlib import suppress
 from hashlib import md5
 from os.path import isfile
@@ -65,6 +65,7 @@ class AioConnection:
             async with session.post(LOGIN_URL2, cookies=resp.cookies, data=payload) as rep:
                 resp2 = await rep.text()
                 if '{"code":0' not in resp2:
+                    print(resp2)
                     raise ConnectionError(resp2)
                 a = "; ".join(f"{v.value}" for k, v in resp.cookies.items())
 

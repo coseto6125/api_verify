@@ -1,0 +1,105 @@
+﻿{
+  "config": {
+    "name": "001_運營管理_代理數據總覽_開啟子板塊filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/statisAgentInfo",
+      "request": {
+        "method": "GET",
+        "url": "/statisAgentInfo",
+        "headers": {
+          "If-None-Match": "W/\"2279-XiN1jgOvuFGji1/PZzDp9qQfCLA\"",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 304
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "289"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/statisAgentInfo/initData",
+      "request": {
+        "method": "GET",
+        "url": "/statisAgentInfo/initData",
+        "params": {
+          "NickName": "",
+          "_": "1675234090233",
+          "beginDate": "",
+          "channelId": "0",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyId": "",
+          "sort": "sort",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    }
+  ]
+}

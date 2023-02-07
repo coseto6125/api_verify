@@ -1,0 +1,148 @@
+﻿{
+  "config": {
+    "name": "001_運營管理_遊戲數據統計_開啟子板塊filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/gameDataMonitor",
+      "request": {
+        "method": "GET",
+        "url": "/gameDataMonitor",
+        "headers": {
+          "If-None-Match": "W/\"4761-tnqa2bjqUwoyjpHPJ1yyLLQCwps\"",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 304
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "311"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/GameDataMonitor/GetGameType",
+      "request": {
+        "method": "GET",
+        "url": "/GameDataMonitor/GetGameType",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/GameDataMonitor/get24HoursOnline",
+      "request": {
+        "method": "GET",
+        "url": "/GameDataMonitor/get24HoursOnline",
+        "params": {
+          "gameIds": "220,230,380,390,510,520,530,540,550,600,610,620,630,650,720,730,740,830,840,860,870,880,890,900,910,920,930,950,1101,1350,1355,1370,1610,1640,1660,1670,1690,1710,1810,1850,1860,1890,1930,1940,1950,1960,1970,1980,1990,2002,2003,2005,2890,3001,3002,3003,3005,7280,8130,8230,90000,90010",
+          "interval": "1"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/GameDataMonitor/GetData",
+      "request": {
+        "method": "GET",
+        "url": "/GameDataMonitor/GetData",
+        "params": {
+          "gameIds": "220,230,380,390,510,520,530,540,550,600,610,620,630,650,720,730,740,830,840,860,870,880,890,900,910,920,930,950,1101,1350,1355,1370,1610,1640,1660,1670,1690,1710,1810,1850,1860,1890,1930,1940,1950,1960,1970,1980,1990,2002,2003,2005,2890,3001,3002,3003,3005,7280,8130,8230,90000,90010"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8;"
+        }
+      ]
+    }
+  ]
+}

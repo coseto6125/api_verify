@@ -1,0 +1,3590 @@
+﻿{
+  "config": {
+    "name": "01_報表管理filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/CircleGameStatistic",
+      "request": {
+        "method": "GET",
+        "url": "/CircleGameStatistic",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "844"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/CircleGameStatistic/getCircleGameType",
+      "request": {
+        "method": "GET",
+        "url": "/CircleGameStatistic/getCircleGameType",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/CircleGameStatistic/getRoomInfo",
+      "request": {
+        "method": "GET",
+        "url": "/CircleGameStatistic/getRoomInfo",
+        "params": {
+          "kindId": "920"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/CirCleGameStatistic/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/CirCleGameStatistic/InitData",
+        "params": {
+          "_": "1675044624962",
+          "beginDate": "2023-01-03",
+          "endDate": "2023-01-03",
+          "kindId": "920",
+          "limit": "20",
+          "offset": "0",
+          "serverId": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/CirCleGameStatistic/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/CirCleGameStatistic/InitData",
+        "params": {
+          "beginDate": "2023-01-03",
+          "endDate": "2023-01-03",
+          "isPage": "0",
+          "kindId": "920",
+          "rnd": "0.30984247175042",
+          "serverId": ""
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/UserCapacityAnalyze",
+      "request": {
+        "method": "GET",
+        "url": "/UserCapacityAnalyze",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "995"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/UserCapacityAnalyze/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/UserCapacityAnalyze/GetList",
+        "params": {
+          "ProxyID": "1",
+          "ProxyName": "",
+          "SearchDate": "2023-01-23"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/UserCapacityAnalyze/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/UserCapacityAnalyze/ExportData",
+        "params": {
+          "ProxyID": "1",
+          "ProxyName": "",
+          "SearchDate": "2023-01-23"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    },
+    {
+      "name": "/winAndLoseReport",
+      "request": {
+        "method": "GET",
+        "url": "/winAndLoseReport",
+        "headers": {
+          "If-None-Match": "W/\"2364-cG00V3ePlPoiCVddKheC5XWUgEk\"",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 304
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "81"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/winAndLoseReport/getGameType1",
+      "request": {
+        "method": "GET",
+        "url": "/winAndLoseReport/getGameType1",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/winAndLoseReport/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/winAndLoseReport/InitData",
+        "params": {
+          "GameUserNO": "",
+          "RoomType": "",
+          "_": "1675044652747",
+          "accounts": "",
+          "beginDate": "",
+          "endDate": "",
+          "kindId": "",
+          "limit": "20",
+          "offset": "0",
+          "serverId": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/WinAndLoseReport/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/WinAndLoseReport/ExportData",
+        "params": {
+          "RoomType": "",
+          "accounts": "",
+          "beginDate": "",
+          "endDate": "",
+          "kindId": "",
+          "rnd": "0.6556606415223429",
+          "serverId": ""
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    },
+    {
+      "name": "/winAndLoseReport/mirrorTable",
+      "request": {
+        "method": "GET",
+        "url": "/winAndLoseReport/mirrorTable",
+        "params": {
+          "accounts": "1_ars_ermj_002",
+          "beginDate": "",
+          "endDate": "",
+          "gameEndTime": "2023-01-30 10:10:33",
+          "gameName": "二人麻将",
+          "id": "281766",
+          "serverName": "二人麻将初级房"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "81"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/WinAndLoseReport/initSameTableData",
+      "request": {
+        "method": "GET",
+        "url": "/WinAndLoseReport/initSameTableData",
+        "params": {
+          "_": "1675044669504",
+          "gameEndTime": "2023-01-30+10:10:33",
+          "gameName": "二人麻将",
+          "id": "281766",
+          "limit": "10",
+          "offset": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/gameResult",
+      "request": {
+        "method": "GET",
+        "url": "/gameResult",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "86"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/winAndLoseReport/GetGameType",
+      "request": {
+        "method": "GET",
+        "url": "/winAndLoseReport/GetGameType",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/GameResult/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/GameResult/InitData",
+        "params": {
+          "Accounts": "",
+          "_": "1675044672206",
+          "beginDate": "",
+          "endDate": "",
+          "gameNo": "",
+          "kindId": "",
+          "limit": "20",
+          "offset": "0",
+          "serverId": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/gameLog",
+      "request": {
+        "method": "GET",
+        "url": "/gameLog",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "91"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/GameLog/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/GameLog/InitData",
+        "params": {
+          "gameNo": "50-1675044599-64651867-1"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/CashOrderDetail",
+      "request": {
+        "method": "GET",
+        "url": "/CashOrderDetail",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "346"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/CashOrderDetail/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/CashOrderDetail/InitData",
+        "params": {
+          "_": "1675044701049",
+          "accounts": "",
+          "beginDate": "",
+          "createUser": "",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "-2",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/CashOrderDetail/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/CashOrderDetail/InitData",
+        "params": {
+          "_": "1675044701050",
+          "accounts": "",
+          "beginDate": "",
+          "createUser": "",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "-2",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/CashOrderDetail/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/CashOrderDetail/ExportData",
+        "params": {
+          "accounts": "",
+          "beginDate": "",
+          "createUser": "",
+          "endDate": "",
+          "orderType": "-2",
+          "rnd": "0.949060596412973"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    },
+    {
+      "name": "/proxyMoneyChangeDetail",
+      "request": {
+        "method": "GET",
+        "url": "/proxyMoneyChangeDetail",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "141"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyMoneyChangeDetail/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyMoneyChangeDetail/initData",
+        "params": {
+          "_": "1675044708677",
+          "beginDate": "",
+          "createUser": "",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "",
+          "orderstatus": "",
+          "proxyName": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/proxyMoneyChangeDetail/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyMoneyChangeDetail/initData",
+        "params": {
+          "_": "1675044708678",
+          "beginDate": "",
+          "createUser": "",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "",
+          "orderstatus": "",
+          "proxyName": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/proxyMoneyChangeDetail/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyMoneyChangeDetail/ExportData",
+        "params": {
+          "beginDate": "",
+          "createUser": "",
+          "endDate": "",
+          "orderType": "",
+          "orderstatus": "",
+          "proxyName": "",
+          "rnd": "0.1687673183557099"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    },
+    {
+      "name": "/proxyStatis",
+      "request": {
+        "method": "GET",
+        "url": "/proxyStatis",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "146"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/Checkproxy",
+      "request": {
+        "method": "POST",
+        "url": "/Checkproxy",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {}
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/proxyStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044716145",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "",
+          "sort": "general",
+          "total": "0",
+          "typeAllId": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charse=utf-8;"
+        },
+        {
+          "check": "content.total",
+          "assert": "eq",
+          "expect": 48
+        },
+        {
+          "check": "content.levelHtml",
+          "assert": "eq",
+          "expect": ""
+        }
+      ]
+    },
+    {
+      "name": "/proxyStatis/GetGameType",
+      "request": {
+        "method": "GET",
+        "url": "/proxyStatis/GetGameType",
+        "params": {
+          "type": "0"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/proxyStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044716146",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "",
+          "sort": "general",
+          "total": "0",
+          "typeAllId": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charse=utf-8;"
+        },
+        {
+          "check": "content.total",
+          "assert": "eq",
+          "expect": 48
+        },
+        {
+          "check": "content.levelHtml",
+          "assert": "eq",
+          "expect": ""
+        }
+      ]
+    },
+    {
+      "name": "/proxyStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044716147",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "EST",
+          "sort": "general",
+          "total": "0",
+          "typeAllId": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/proxyStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044716148",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "",
+          "sort": "general",
+          "total": "0",
+          "typeAllId": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charse=utf-8;"
+        },
+        {
+          "check": "content.total",
+          "assert": "eq",
+          "expect": 48
+        },
+        {
+          "check": "content.levelHtml",
+          "assert": "eq",
+          "expect": ""
+        }
+      ]
+    },
+    {
+      "name": "/proxyStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044716149",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "",
+          "sort": "sort",
+          "total": "0",
+          "typeAllId": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charse=utf-8;"
+        },
+        {
+          "check": "content.total",
+          "assert": "eq",
+          "expect": 142
+        },
+        {
+          "check": "content.levelHtml",
+          "assert": "eq",
+          "expect": ""
+        }
+      ]
+    },
+    {
+      "name": "/proxyStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044716150",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "",
+          "sort": "sort",
+          "total": "0",
+          "typeAllId": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charse=utf-8;"
+        },
+        {
+          "check": "content.total",
+          "assert": "eq",
+          "expect": 142
+        },
+        {
+          "check": "content.levelHtml",
+          "assert": "eq",
+          "expect": ""
+        }
+      ]
+    },
+    {
+      "name": "/proxyStatis/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyStatis/ExportData",
+        "params": {
+          "Disablelinecode": "0",
+          "GameName": "全部",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "proxyName": "",
+          "rnd": "0.16117509946055164",
+          "searchType": "",
+          "sort": "sort",
+          "typeAllId": "0"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/content-stream"
+        }
+      ]
+    },
+    {
+      "name": "/proxyCardStatis",
+      "request": {
+        "method": "GET",
+        "url": "/proxyCardStatis",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "1212"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/Checkproxy",
+      "request": {
+        "method": "POST",
+        "url": "/Checkproxy",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {}
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/proxyCardStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyCardStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044730189",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "",
+          "sort": "general",
+          "total": "0",
+          "typeAllId": "3"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charse=utf-8;"
+        },
+        {
+          "check": "content.total",
+          "assert": "eq",
+          "expect": 48
+        },
+        {
+          "check": "content.levelHtml",
+          "assert": "eq",
+          "expect": ""
+        }
+      ]
+    },
+    {
+      "name": "/proxyCardStatis/GetGameType",
+      "request": {
+        "method": "GET",
+        "url": "/proxyCardStatis/GetGameType",
+        "params": {
+          "type": "3"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/proxyCardStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyCardStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044730190",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "",
+          "sort": "general",
+          "total": "0",
+          "typeAllId": "3"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charse=utf-8;"
+        },
+        {
+          "check": "content.total",
+          "assert": "eq",
+          "expect": 48
+        },
+        {
+          "check": "content.levelHtml",
+          "assert": "eq",
+          "expect": ""
+        }
+      ]
+    },
+    {
+      "name": "/proxyCardStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyCardStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044730191",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "EST",
+          "sort": "general",
+          "total": "0",
+          "typeAllId": "3"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/proxyCardStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyCardStatis/initData",
+        "params": {
+          "GameName": "全部",
+          "_": "1675044730192",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "limit": "20",
+          "offset": "0",
+          "proxyName": "",
+          "searchType": "",
+          "sort": "general",
+          "total": "0",
+          "typeAllId": "3"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charse=utf-8;"
+        },
+        {
+          "check": "content.total",
+          "assert": "eq",
+          "expect": 48
+        },
+        {
+          "check": "content.levelHtml",
+          "assert": "eq",
+          "expect": ""
+        }
+      ]
+    },
+    {
+      "name": "/proxyCardStatis/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/proxyCardStatis/ExportData",
+        "params": {
+          "Disablelinecode": "0",
+          "GameName": "全部",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "gameid": "",
+          "proxyName": "",
+          "rnd": "0.790144361523595",
+          "searchType": "",
+          "sort": "general",
+          "typeAllId": "3"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/content-stream"
+        }
+      ]
+    },
+    {
+      "name": "/usermoneychangedetail",
+      "request": {
+        "method": "GET",
+        "url": "/usermoneychangedetail",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "151"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/memberInfo",
+      "request": {
+        "method": "GET",
+        "url": "/memberInfo",
+        "headers": {
+          "If-None-Match": "W/\"6bd1-N/byI+PC7k+Z3ld7e4iP/PcMiJM\"",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "71"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/CheckForbidden",
+      "request": {
+        "method": "POST",
+        "url": "/CheckForbidden",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {}
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/memberinfo/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/memberinfo/GetList",
+        "params": {
+          "Accounts": "",
+          "BeginDate": "",
+          "EndDate": "",
+          "Proxyaccount": "",
+          "_": "1675044757633",
+          "hidserch": "1",
+          "limit": "10",
+          "offset": "0",
+          "selstatus": "-1",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/memberinfo/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/memberinfo/GetList",
+        "params": {
+          "Accounts": "",
+          "BeginDate": "",
+          "EndDate": "",
+          "Proxyaccount": "",
+          "_": "1675044757634",
+          "hidserch": "1",
+          "limit": "10",
+          "offset": "0",
+          "selstatus": "-1",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/memberinfo/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/memberinfo/GetList",
+        "params": {
+          "Accounts": "",
+          "BeginDate": "",
+          "EndDate": "",
+          "Proxyaccount": "1",
+          "_": "1675044757635",
+          "hidserch": "1",
+          "limit": "10",
+          "offset": "0",
+          "selstatus": "-1",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/winAndLoseReport",
+      "request": {
+        "method": "GET",
+        "url": "/winAndLoseReport",
+        "headers": {
+          "If-None-Match": "W/\"2364-cG00V3ePlPoiCVddKheC5XWUgEk\"",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 304
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "81"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/winAndLoseReport/getGameType1",
+      "request": {
+        "method": "GET",
+        "url": "/winAndLoseReport/getGameType1",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/winAndLoseReport/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/winAndLoseReport/InitData",
+        "params": {
+          "GameUserNO": "",
+          "RoomType": "",
+          "_": "1675044768632",
+          "accounts": "",
+          "beginDate": "",
+          "endDate": "",
+          "kindId": "",
+          "limit": "20",
+          "offset": "0",
+          "serverId": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/userMoneyChangeDetail/initData",
+      "request": {
+        "method": "GET",
+        "url": "/userMoneyChangeDetail/initData",
+        "params": {
+          "_": "1675044742682",
+          "accounts": "1_ars_qdy_003",
+          "beginDate": "",
+          "createUser": "",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "orderStatus": "",
+          "orderType": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/userMoneyChangeDetail/GetAccountMoney",
+      "request": {
+        "method": "POST",
+        "url": "/userMoneyChangeDetail/GetAccountMoney",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "account": "1_ars_qdy_003"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/userMoneyChangeDetail/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/userMoneyChangeDetail/ExportData",
+        "params": {
+          "accounts": "1_ars_qdy_003",
+          "beginDate": "",
+          "createUser": "",
+          "endDate": "",
+          "orderStatus": "",
+          "orderType": "",
+          "rnd": "0.35067672025987395"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    },
+    {
+      "name": "/memberstatis",
+      "request": {
+        "method": "GET",
+        "url": "/memberstatis",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "156"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/memberStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/memberStatis/initData",
+        "params": {
+          "_": "1675044782822",
+          "accounts": "",
+          "beginDate": "",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/memberStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/memberStatis/initData",
+        "params": {
+          "_": "1675044782823",
+          "accounts": "1_ars_qdy_003",
+          "beginDate": "",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/winAndLoseReport/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/winAndLoseReport/InitData",
+        "params": {
+          "GameUserNO": "",
+          "RoomType": "",
+          "_": "1675044768633",
+          "accounts": "",
+          "beginDate": "",
+          "endDate": "",
+          "kindId": "",
+          "limit": "20",
+          "offset": "80",
+          "serverId": "",
+          "total": "95"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/memberStatis/initData",
+      "request": {
+        "method": "GET",
+        "url": "/memberStatis/initData",
+        "params": {
+          "_": "1675044782824",
+          "accounts": "1_ars_qdy_003",
+          "beginDate": "2023-01-16",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/memberStatis/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/memberStatis/ExportData",
+        "params": {
+          "accounts": "1_ars_qdy_003",
+          "beginDate": "2023-01-16",
+          "endDate": "",
+          "rnd": "0.1847435483659261"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    },
+    {
+      "name": "/OrderStatusQuery",
+      "request": {
+        "method": "GET",
+        "url": "/OrderStatusQuery",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/OrderStatusQuery/getOrderStatus",
+      "request": {
+        "method": "POST",
+        "url": "/OrderStatusQuery/getOrderStatus",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "orderId": "1_ars_qdy_003"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/BuyPointsDetail",
+      "request": {
+        "method": "GET",
+        "url": "/BuyPointsDetail",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "461"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/BuyPointsDetail/initData",
+      "request": {
+        "method": "GET",
+        "url": "/BuyPointsDetail/initData",
+        "params": {
+          "_": "1675044818126",
+          "beginDate": "",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/BuyPointsDetail/initData",
+      "request": {
+        "method": "GET",
+        "url": "/BuyPointsDetail/initData",
+        "params": {
+          "_": "1675044818127",
+          "beginDate": "",
+          "endDate": "",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/BuyPointsDetail/initData",
+      "request": {
+        "method": "GET",
+        "url": "/BuyPointsDetail/initData",
+        "params": {
+          "_": "1675044818128",
+          "beginDate": "2023-01-03",
+          "endDate": "2023-01-06",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/BuyPointsDetail/initData",
+      "request": {
+        "method": "GET",
+        "url": "/BuyPointsDetail/initData",
+        "params": {
+          "_": "1675044818129",
+          "beginDate": "2022-12-01",
+          "endDate": "2023-01-06",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/BuyPointsDetail/initData",
+      "request": {
+        "method": "GET",
+        "url": "/BuyPointsDetail/initData",
+        "params": {
+          "_": "1675044818130",
+          "beginDate": "2022-11-01",
+          "endDate": "2023-01-06",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/BuyPointsDetail/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/BuyPointsDetail/ExportData",
+        "params": {
+          "beginDate": "2022-11-01",
+          "endDate": "2023-01-06",
+          "orderType": "",
+          "rnd": "0.34948757265901476"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    },
+    {
+      "name": "/PetInfoByInterface",
+      "request": {
+        "method": "GET",
+        "url": "/PetInfoByInterface",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "688"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/PetInfoByInterface/getData",
+      "request": {
+        "method": "GET",
+        "url": "/PetInfoByInterface/getData",
+        "params": {
+          "_": "1675044838667",
+          "accounts": ""
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/PetInfoByInterface/getData",
+      "request": {
+        "method": "GET",
+        "url": "/PetInfoByInterface/getData",
+        "params": {
+          "_": "1675044838668",
+          "accounts": "1_ars_qdy_003"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/EstimateLossStatistics",
+      "request": {
+        "method": "GET",
+        "url": "/EstimateLossStatistics",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "968"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/EstimateLossStatistics/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/EstimateLossStatistics/InitData",
+        "params": {
+          "_": "1675044843743",
+          "channelId": "",
+          "fbeginDate": "2023-01-30+10:05",
+          "fendDate": "2023-01-30+10:14",
+          "sbeginDate": "2023-01-30+10:08",
+          "sendDate": "2023-01-30+10:14"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/EstimateLossStatistics/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/EstimateLossStatistics/ExportData",
+        "params": {
+          "channelId": "",
+          "fbeginDate": "2023-01-30 10:05",
+          "fendDate": "2023-01-30 10:14",
+          "sbeginDate": "2023-01-30 10:08",
+          "sendDate": "2023-01-30 10:14"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    },
+    {
+      "name": "/QueryAllBet",
+      "request": {
+        "method": "GET",
+        "url": "/QueryAllBet",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/QueryAllBet/query",
+      "request": {
+        "method": "GET",
+        "url": "/QueryAllBet/query",
+        "params": {
+          "channelId": "1",
+          "date": "2023-01-29",
+          "endDate": "2023-01-30"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/BetDetial",
+      "request": {
+        "method": "GET",
+        "url": "/BetDetial",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "972"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/betDetial/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/betDetial/InitData",
+        "params": {
+          "_": "1675044896537",
+          "accounts": "",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "limit": "50",
+          "offset": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/betDetial/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/betDetial/InitData",
+        "params": {
+          "_": "1675044896538",
+          "accounts": "",
+          "beginDate": "",
+          "channelId": "",
+          "endDate": "",
+          "limit": "50",
+          "offset": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/betDetial/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/betDetial/ExportData",
+        "params": {
+          "accounts": "",
+          "beginDate": "",
+          "channelID": "",
+          "endDate": ""
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    },
+    {
+      "name": "/accountCompare",
+      "request": {
+        "method": "GET",
+        "url": "/accountCompare",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "982"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/accountCompare/initData",
+      "request": {
+        "method": "GET",
+        "url": "/accountCompare/initData",
+        "params": {
+          "_": "1675044903196",
+          "channelId": "1",
+          "channelName": "",
+          "compareBegin": "2023-01-28",
+          "compareEnd": "2023-01-29",
+          "limit": "20",
+          "offset": "0",
+          "staticBegin": "2023-01-28",
+          "staticEnd": "2023-01-29"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charse=utf-8;"
+        }
+      ]
+    },
+    {
+      "name": "/accountCompare/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/accountCompare/ExportData",
+        "params": {
+          "": "",
+          "channelId": "1",
+          "channelName": "",
+          "compareBegin": "2023-01-28",
+          "compareEnd": "2023-01-29",
+          "staticBegin": "2023-01-28",
+          "staticEnd": "2023-01-29"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    }
+  ]
+}

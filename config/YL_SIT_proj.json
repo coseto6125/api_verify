@@ -7,5 +7,8 @@
             "connect_sid": "${get_connect_sid(YL)}",
             "headers_cookie": "${get_headers_cookie(YL)}"
         }
-    }
+    },
+    "validate_code200": [
+        "/KeepGameUsers/getGameType"
+    ]
 }

@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:59:56
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-01 17:32:16
+# @Last Modified time: 2023-02-01 18:12:35
 from os import listdir, makedirs, path, remove, system
 from shutil import copyfile
 from subprocess import PIPE, run
@@ -13,7 +13,7 @@ from urllib.parse import unquote
 from orjson import OPT_INDENT_2, dumps, loads
 
 _print = print
-
+JSON = ".json"
 
 def print(text):
     _print(text + "\n", end="")
@@ -47,9 +47,9 @@ def convert_file(file_path, filter):
 
     if filter:
         system(f'har2case {file_path} --exclude "{base_url}/resource/|{base_url}/content/"')
-        file_name = file_name.replace(".har", ".json")
+        file_name = file_name.replace(".har", JSON)
         file_path = path.join("\\".join(file_path.split("\\")[:-1]), file_name)
-        file_name = file_name.split("/")[-1].replace(".json", "")
+        file_name = file_name.split("/")[-1].replace(JSON, "")
 
     sub_dir = "_".join(file_name.split("_")[:4])
 
@@ -63,7 +63,7 @@ def convert_file(file_path, filter):
     result = run(cmd, stdout=PIPE, stderr=PIPE)
     print(result.stderr.splitlines()[-1].decode("utf-8"))
     remove(file_path)
-    output_path = file_path.split("/")[-1].replace(".json", "")
+    output_path = file_path.split("/")[-1].replace(JSON, "")
     output_path = output_path.split("\\")[-1].replace(".har", "") if filter else output_path.replace(".har", "")
     output_case_path = f"{output_case_dir}{file_name}_test.json"
 
@@ -84,5 +84,5 @@ def convert_file(file_path, filter):
         f.write(dumps(base, option=OPT_INDENT_2).decode("utf-8-sig"))
 
 
-file_list = ["har\YL_SIT_har", "./har/YL_SIT_01_報表管理.har"]
+file_list = ["har/YL_SIT_har", "./har/YL_SIT_01_報表管理.har"]
 convert(file_list)

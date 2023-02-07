@@ -1,0 +1,288 @@
+﻿{
+  "config": {
+    "name": "001_運營管理_代理接入遊戲查看_開啟子板塊filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/AgentAccessGame",
+      "request": {
+        "method": "GET",
+        "url": "/AgentAccessGame",
+        "headers": {
+          "If-None-Match": "W/\"2706-v+Bp+hNgh+1rcWohflVIkB5ye9k\"",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 304
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "854"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/AgentAccessGame/GetGameType",
+      "request": {
+        "method": "GET",
+        "url": "/AgentAccessGame/GetGameType",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/AgentAccessGame/getlist",
+      "request": {
+        "method": "GET",
+        "url": "/AgentAccessGame/getlist",
+        "params": {
+          "ChannelID": "",
+          "_": "1675235899151",
+          "beginDate": "",
+          "endDate": "",
+          "gameIds": "220,230,380,390,510,520,530,540,550,600,610,620,630,650,720,730,740,830,840,860,870,880,890,900,910,920,930,950,1101,1350,1355,1370,1610,1640,1660,1670,1690,1710,1810,1850,1860,1890,1930,1940,1950,1960,1970,1980,1990,2002,2003,2005,2890,3001,3002,3003,3005,7280,8130,8230,90000,90010",
+          "gameStatus": "-1",
+          "limit": "50",
+          "offset": "0",
+          "proxyName": "",
+          "proxyUID": "",
+          "searchSort": "0",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/AgentAccessGame/getlist",
+      "request": {
+        "method": "GET",
+        "url": "/AgentAccessGame/getlist",
+        "params": {
+          "ChannelID": "1",
+          "_": "1675235899152",
+          "beginDate": "2023-01-31",
+          "endDate": "2023-02-01",
+          "gameIds": "220,230,380,390,510,520,530,540,550,600,610,620,630,650,720,730,740,830,840,860,870,880,890,900,910,920,930,950,1101,1350,1355,1370,1610,1640,1660,1670,1690,1710,1810,1850,1860,1890,1930,1940,1950,1960,1970,1980,1990,2002,2003,2005,2890,3001,3002,3003,3005,7280,8130,8230,90000,90010",
+          "gameStatus": "-1",
+          "limit": "50",
+          "offset": "0",
+          "proxyName": "",
+          "proxyUID": "",
+          "searchSort": "0",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/AgentAccessGame",
+      "request": {
+        "method": "GET",
+        "url": "/AgentAccessGame",
+        "headers": {
+          "If-None-Match": "W/\"2706-v+Bp+hNgh+1rcWohflVIkB5ye9k\"",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 304
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "854"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/AgentAccessGame/GetGameType",
+      "request": {
+        "method": "GET",
+        "url": "/AgentAccessGame/GetGameType",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/AgentAccessGame/getlist",
+      "request": {
+        "method": "GET",
+        "url": "/AgentAccessGame/getlist",
+        "params": {
+          "ChannelID": "",
+          "_": "1675235920241",
+          "beginDate": "",
+          "endDate": "",
+          "gameIds": "220,230,380,390,510,520,530,540,550,600,610,620,630,650,720,730,740,830,840,860,870,880,890,900,910,920,930,950,1101,1350,1355,1370,1610,1640,1660,1670,1690,1710,1810,1850,1860,1890,1930,1940,1950,1960,1970,1980,1990,2002,2003,2005,2890,3001,3002,3003,3005,7280,8130,8230,90000,90010",
+          "gameStatus": "-1",
+          "limit": "50",
+          "offset": "0",
+          "proxyName": "",
+          "proxyUID": "",
+          "searchSort": "0",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    }
+  ]
+}
