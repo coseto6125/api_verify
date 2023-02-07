@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 18:28:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-02 09:59:04
+# @Last Modified time: 2023-02-07 16:22:25
 from os import listdir, path, rename, system
 from re import findall
 from subprocess import PIPE, run
@@ -53,6 +53,6 @@ def run_test(target_list):
 
 REPORT_PATH = "./reports/"
 
-# file_list = ["testcases\YL_SIT_case\YL_SIT_001_運營管理"]
-file_list = ["testcases\YL_SIT_case\YL_SIT_001_運營管理\YL_SIT_001_運營管理_IP白名單_開啟子板塊_test.json"]
+file_list = ["testcases\YL_SIT_case"]
+# file_list = ["testcases\YL_SIT_case\YL_SIT_001_運營管理\YL_SIT_001_運營管理_IP白名單_開啟子板塊_test.json"]
 run_test(file_list)
