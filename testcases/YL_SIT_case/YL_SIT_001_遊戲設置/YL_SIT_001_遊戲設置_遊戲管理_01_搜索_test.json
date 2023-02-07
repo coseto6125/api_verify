@@ -1,0 +1,192 @@
+﻿{
+  "config": {
+    "name": "001_遊戲設置_遊戲管理_01_搜索filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/gameinfo",
+      "request": {
+        "method": "GET",
+        "url": "/gameinfo",
+        "headers": {
+          "If-None-Match": "W/\"4560-TKKd7KT4TLFiGW6gdILhhgPvHSY\"",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/html; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/getCurPageGrant",
+      "request": {
+        "method": "GET",
+        "url": "/getCurPageGrant",
+        "params": {
+          "powerid": "102"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/CheckForbidden",
+      "request": {
+        "method": "POST",
+        "url": "/CheckForbidden",
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {}
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/gameinfo/getSDKMaintenanceStatus",
+      "request": {
+        "method": "GET",
+        "url": "/gameinfo/getSDKMaintenanceStatus",
+        "params": {
+          "type": "1"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/gameinfo/getSDKMaintenanceStatus",
+      "request": {
+        "method": "GET",
+        "url": "/gameinfo/getSDKMaintenanceStatus",
+        "params": {
+          "type": "2"
+        },
+        "headers": {
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/gameinfo/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/gameinfo/GetList",
+        "params": {
+          "limit": "50",
+          "offset": "0",
+          "selstatus": "-1",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    }
+  ]
+}

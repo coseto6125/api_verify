@@ -1,0 +1,217 @@
+﻿{
+  "config": {
+    "name": "001_帳號管理_代理帳號(代理)_02_編輯filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/proxyaccountdl/getproxybyid",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccountdl/getproxybyid",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "ChannelID": "149"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccountdl/getipwhitebyid",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccountdl/getipwhitebyid",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "ChannelID": "149"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccountdl/editProxy",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccountdl/editProxy",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "AccountingFor": "69",
+          "Cooperation": "0",
+          "Deskey": "83UPOJGVFSU4CUFL",
+          "Forbidden": "0",
+          "Mark": "",
+          "Md5key": "8E3HXDULEHBK7U3X",
+          "MoneyType": "1",
+          "NickName": "",
+          "ProxyAccount": "ralflinS_______!",
+          "ProxyPawd": "e9093f79aa57a1efe4a4331194f44ea9",
+          "WhiteIP": "",
+          "banckstatus": "1",
+          "id": "149",
+          "isPayPopUps": "1",
+          "isautopay": "0",
+          "walletType": "2"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccountdl/addipwhitelis",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccountdl/addipwhitelis",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "IPAddress": "",
+          "ProxyAccount": "ralflinS_______!",
+          "insertId": "149"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccountdl/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/proxyaccountdl/GetList",
+        "params": {
+          "Accounts": "",
+          "ChannelID": "",
+          "NickName": "",
+          "limit": "50",
+          "offset": "0",
+          "proxyUID": "",
+          "proxyUIDS": ""
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 0
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccountdl/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/proxyaccountdl/GetList",
+        "params": {
+          "Accounts": "",
+          "ChannelID": "",
+          "NickName": "",
+          "limit": "50",
+          "offset": "0",
+          "proxyUID": "",
+          "proxyUIDS": ""
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    }
+  ]
+}

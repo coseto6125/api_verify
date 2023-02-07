@@ -1,0 +1,156 @@
+﻿{
+  "config": {
+    "name": "001_帳號管理_代理帳號(代理)_08_添加代理filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/proxyaccountdl/addProxy",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccountdl/addProxy",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "AccountingFor": "87",
+          "Cooperation": "0",
+          "Deskey": "YS99TVIV5269WRSH",
+          "Forbidden": "0",
+          "Mark": "",
+          "Md5key": "HHNROM6NZQ4ZGCQK",
+          "MoneyType": "1",
+          "NickName": "",
+          "ProxyAccount": "2023020201",
+          "ProxyPawd": "03f9aeef097033d251225d1247f9dd65",
+          "WhiteIP": "",
+          "banckstatus": "0",
+          "id": "",
+          "isPayPopUps": "1",
+          "isautopay": "0",
+          "walletType": "2"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccountdl/addipwhitelis",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccountdl/addipwhitelis",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "IPAddress": "",
+          "ProxyAccount": "2023020201",
+          "insertId": "169"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccountdl/addproxygames",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccountdl/addproxygames",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "insertId": "169"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccountdl/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/proxyaccountdl/GetList",
+        "params": {
+          "Accounts": "",
+          "ChannelID": "",
+          "NickName": "",
+          "limit": "50",
+          "offset": "0",
+          "proxyUID": "",
+          "proxyUIDS": ""
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    }
+  ]
+}

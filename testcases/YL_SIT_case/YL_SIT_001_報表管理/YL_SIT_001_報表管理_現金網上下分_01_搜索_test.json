@@ -1,0 +1,51 @@
+﻿{
+  "config": {
+    "name": "001_報表管理_現金網上下分_01_搜索filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/CashOrderDetail/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/CashOrderDetail/InitData",
+        "params": {
+          "_": "1675656239990",
+          "accounts": "",
+          "beginDate": "2023-02-06 11:53",
+          "createUser": "1_qa0203_fgsz_002",
+          "endDate": "2023-02-06 12:04",
+          "limit": "20",
+          "offset": "0",
+          "orderType": "-2",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    }
+  ]
+}

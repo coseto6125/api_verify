@@ -1,0 +1,79 @@
+﻿{
+  "config": {
+    "name": "001_風控管理_追殺管理_03_追殺後關閉追殺filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/killmanagement/Killrecord",
+      "request": {
+        "method": "POST",
+        "url": "/killmanagement/Killrecord",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "ZMark": "test",
+          "ZSAccounts": "1_020401",
+          "_csrf": "sEjhu0OK-xu64gkn97FCS4hLu_jNj-Wqftcg",
+          "beginend": "1"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/killmanagement/Killrecord",
+      "request": {
+        "method": "POST",
+        "url": "/killmanagement/Killrecord",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "ZMark": "test",
+          "ZSAccounts": "1_020401",
+          "_csrf": "sEjhu0OK-xu64gkn97FCS4hLu_jNj-Wqftcg",
+          "beginend": "0"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    }
+  ]
+}

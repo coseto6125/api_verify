@@ -1,0 +1,46 @@
+﻿{
+  "config": {
+    "name": "001_運營管理_登入情況監控_02_導出EXCELfilter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/CheckLogin/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/CheckLogin/ExportData",
+        "params": {
+          "": "",
+          "beginDate": "2023-01-31",
+          "endDate": "2023-02-01"
+        },
+        "headers": {
+          "If-Modified-Since": "Wed, 01 Feb 2023 06:40:51 GMT",
+          "If-None-Match": "W/\"4693-1860bb4e94b\"",
+          "Proxy-Connection": "keep-alive",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    }
+  ]
+}

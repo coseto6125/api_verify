@@ -1,0 +1,239 @@
+﻿{
+  "config": {
+    "name": "001_運營管理_IP白名單_01_添加編輯_IP後批量删除filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/iPwhitelis/save",
+      "request": {
+        "method": "POST",
+        "url": "/iPwhitelis/save",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "IPAddress": "192.168.17.50",
+          "IPMark": "192.168.17.50",
+          "_csrf": "0alge8Zh-7iPvQ2gDkDzX7ldldYAtMwjt8Vo",
+          "username": "guanli"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/iPwhitelis/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/iPwhitelis/GetList",
+        "params": {
+          "id": "",
+          "limit": "10",
+          "offset": "0",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/iPwhitelis/GetID",
+      "request": {
+        "method": "POST",
+        "url": "/iPwhitelis/GetID",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "id": "97"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/iPwhitelis/edit",
+      "request": {
+        "method": "POST",
+        "url": "/iPwhitelis/edit",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "IPAddress": "192.168.17.50",
+          "IPMark": "192.168.17.50",
+          "_csrf": "0alge8Zh-7iPvQ2gDkDzX7ldldYAtMwjt8Vo",
+          "id": "97",
+          "username": "guanli"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/iPwhitelis/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/iPwhitelis/GetList",
+        "params": {
+          "id": "",
+          "limit": "10",
+          "offset": "0",
+          "total": "1"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/iPwhitelis/delete",
+      "request": {
+        "method": "POST",
+        "url": "/iPwhitelis/delete",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "ids": "97"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/iPwhitelis/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/iPwhitelis/GetList",
+        "params": {
+          "id": "",
+          "limit": "10",
+          "offset": "0",
+          "total": "1"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    }
+  ]
+}

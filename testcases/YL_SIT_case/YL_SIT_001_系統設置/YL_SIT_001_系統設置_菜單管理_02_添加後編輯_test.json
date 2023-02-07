@@ -1,0 +1,210 @@
+﻿{
+  "config": {
+    "name": "001_系統設置_菜單管理_02_添加後編輯filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/menumanage/save",
+      "request": {
+        "method": "POST",
+        "url": "/menumanage/save",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "_csrf": "ro9wI2Ti-Q_nK7dbTy7rlcC23a4ykIeI0934",
+          "isagent": "1",
+          "mark": "",
+          "menuIcon": "123",
+          "menuLink": "123",
+          "menuTitle": "123",
+          "pid": "0",
+          "sort": "",
+          "status": "1"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/menumanage/initDataByModuleid",
+      "request": {
+        "method": "GET",
+        "url": "/menumanage/initDataByModuleid",
+        "params": {
+          "_": "1675672689144",
+          "menuTitle": "",
+          "pid": "0",
+          "status": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/menumanage/initTree",
+      "request": {
+        "method": "GET",
+        "url": "/menumanage/initTree",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/menumanage/edit",
+      "request": {
+        "method": "POST",
+        "url": "/menumanage/edit",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "_csrf": "ro9wI2Ti-Q_nK7dbTy7rlcC23a4ykIeI0934",
+          "id": "1228",
+          "isagent": "1",
+          "mark": "",
+          "menuIcon": "123",
+          "menuLink": "123",
+          "menuTitle": "123",
+          "pid": "0",
+          "sort": "0",
+          "status": "1"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/menumanage/initDataByModuleid",
+      "request": {
+        "method": "GET",
+        "url": "/menumanage/initDataByModuleid",
+        "params": {
+          "_": "1675672689145",
+          "menuTitle": "",
+          "pid": "0",
+          "status": "",
+          "total": "0"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    },
+    {
+      "name": "/menumanage/initTree",
+      "request": {
+        "method": "GET",
+        "url": "/menumanage/initTree",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    }
+  ]
+}

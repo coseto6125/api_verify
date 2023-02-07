@@ -1,0 +1,45 @@
+﻿{
+  "config": {
+    "name": "001_財務管理_收款報表_03_收款filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/IncomeReport/checkPreMonth",
+      "request": {
+        "method": "GET",
+        "url": "/IncomeReport/checkPreMonth",
+        "params": {
+          "channelId": "149",
+          "incomeType": "0",
+          "payMonth": "2",
+          "payYear": "2023"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8"
+        }
+      ]
+    }
+  ]
+}
