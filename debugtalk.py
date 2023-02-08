@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:49:28
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-02 10:00:25
+# @Last Modified time: 2023-02-08 09:57:12
 import asyncio
 import logging
 from loguru import logger
@@ -21,7 +21,7 @@ def get_backend_info(platform: str) -> 1:
     if redis_get(f"{platform}_connect_sid", True) is not None:
         return 0
     session = asyncio.run(AioConnection(platform)._login())
-    redis_set(f"{platform}_connect_sid", session,600000)
+    redis_set(f"{platform}_connect_sid", session,600)
     return 1
 
 @logger.catch

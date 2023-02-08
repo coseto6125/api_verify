@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 18:28:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-07 18:18:22
+# @Last Modified time: 2023-02-07 18:36:11
 from os import listdir, path, rename, system
 from re import findall
 from subprocess import PIPE, STDOUT, Popen, run
@@ -57,5 +57,5 @@ def run_test(target_list):
     print_result(rename_report(file_path))
 
 
-file_list = ["testcases_base\YL_SIT_001_運營管理_IP白名單_開啟子板塊_test.json"]
+file_list = ["testcases\\YL_SIT_case"]
 run_test(file_list)
