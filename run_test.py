@@ -2,8 +2,8 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 18:28:43
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-07 18:36:11
-from os import listdir, path, rename, system
+# @Last Modified time: 2023-02-08 11:52:17
+from os import listdir, path, remove, rename, system
 from re import findall
 from subprocess import PIPE, STDOUT, Popen, run
 from time import localtime, strftime
@@ -55,7 +55,10 @@ def run_test(target_list):
                 file_path = findall('"(.*)"', msg)[0]
 
     print_result(rename_report(file_path))
+    for file in listdir('.temp/'):
+        if file.endswith('.tmp'):
+            remove(f'.temp/{file}')
 
 
-file_list = ["testcases\\YL_SIT_case"]
+file_list = ["testcases\\YL_SIT_case\\YL_SIT_001_用戶分析"]
 run_test(file_list)
