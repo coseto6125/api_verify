@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 12:39:39
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-02 09:51:15
+# @Last Modified time: 2023-02-09 15:49:00
 from contextlib import suppress
 from hashlib import md5
 from os.path import isfile
@@ -84,6 +84,31 @@ class AioConnection:
             # async with session.get("/CheckLogin") as r2:
             #     await r2.text()
             #     b = next(i[1] for i in r2.raw_headers if i[0] == b'Set-Cookie').decode("utf-8")
+        with suppress(Exception):
+            await session.close()
+        return a
+    
+    
+    async def _login_tt(self) -> tuple[str, str] | None:
+        if self.is_session_tmp and self.cookies:
+            return
+        LOGIN_URL, LOGIN_URL2 = "/", "/api/users/login"
+        NAME = self.pl_info["acc"]
+        PASSWORD = self.pl_info["pw"]
+        async with self.session() as session:
+            async with session.get(LOGIN_URL) as resp:
+                await resp.text()
+                self.cookies = resp.cookies
+            payload = {
+                "account": NAME,
+                "password": PASSWORD,
+            }
+            async with session.post(LOGIN_URL2, cookies=resp.cookies, data=payload) as rep:
+                resp2 = await rep.text()
+                if '"code":"OK"' not in resp2:
+                    print(resp2)
+                    raise ConnectionError(resp2)
+                a = "; ".join(f"{v.value}" for k, v in rep.cookies.items())
         with suppress(Exception):
             await session.close()
         return a

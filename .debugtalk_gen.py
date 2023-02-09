@@ -11,6 +11,7 @@ from debugtalk import *
 if __name__ == "__main__":
     import funppy
     funppy.register("get_backend_info", get_backend_info)
+    funppy.register("get_tt_backend_info", get_tt_backend_info)
     funppy.register("get_connect_sid", get_connect_sid)
     funppy.register("get_headers_cookie", get_headers_cookie)
     funppy.register("setup_hook_example", setup_hook_example)

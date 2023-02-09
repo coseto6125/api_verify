@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:59:56
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-01 18:12:35
+# @Last Modified time: 2023-02-09 15:53:33
 from os import listdir, makedirs, path, remove, system
 from shutil import copyfile
 from subprocess import PIPE, run
@@ -72,7 +72,7 @@ def convert_file(file_path, filter):
         base = loads(f.read())
 
     base["config"].update(modif_config)
-    base["config"]["name"] = f"{output_path[7:]}{filter=}"
+    base["config"]["name"] = f"{output_path[7:]}"
 
     for req in base["teststeps"]:
         req["request"]["url"] = req["request"]["url"].replace(base_url, "")
@@ -84,5 +84,5 @@ def convert_file(file_path, filter):
         f.write(dumps(base, option=OPT_INDENT_2).decode("utf-8-sig"))
 
 
-file_list = ["har/YL_SIT_har", "./har/YL_SIT_01_報表管理.har"]
+file_list = ["har/TT_SIT_har"]
 convert(file_list)

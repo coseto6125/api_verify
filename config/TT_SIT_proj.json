@@ -1,0 +1,11 @@
+{
+    "project_name": "TT_SIT",
+    "config": {
+        "base_url": "http://192.168.23.114:9202",
+        "variables": {
+            "_getinfo": "${get_backend_info(YL)}",
+            "connect_sid": "${get_connect_sid(TT)}",
+            "YL_connect_sid": "${get_connect_sid(YL)}"
+        }
+    }
+}
