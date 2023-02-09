@@ -6,7 +6,7 @@
             "_getinfo": "${get_tt_backend_info(TT)}",
             "connect_sid": "${get_connect_sid(TT)}",
             "YL_getinfo": "${get_tt_backend_info(YL)}",
-            "YL_connect_sid": "${get_connect_sid(TT)}"
+            "YL_connect_sid": "${get_connect_sid(YL)}"
         }
     }
 }
