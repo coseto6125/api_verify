@@ -1,0 +1,43 @@
+﻿{
+  "config": {
+    "name": "001_運營管理_01代理數據總覽_02_導出EXCEL",
+    "base_url": "http://192.168.23.114:9202",
+    "variables": {
+      "_getinfo": "${get_tt_backend_info(TT)}",
+      "connect_sid": "${get_connect_sid(TT)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/api/statisAgentInfo/export",
+      "request": {
+        "method": "GET",
+        "url": "/api/statisAgentInfo/export",
+        "params": {
+          "beginDate": "2023-02-08",
+          "brand": "yl",
+          "channelId": "1",
+          "endDate": "2023-02-08",
+          "mode": "0",
+          "nickName": "",
+          "platform": ""
+        },
+        "headers": {
+          "Authorization": "token",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "Authorization": "token",
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        }
+      ]
+    }
+  ]
+}

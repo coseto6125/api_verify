@@ -2,7 +2,7 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 12:39:39
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-09 15:49:00
+# @Last Modified time: 2023-02-09 16:51:42
 from contextlib import suppress
 from hashlib import md5
 from os.path import isfile
@@ -96,19 +96,21 @@ class AioConnection:
         NAME = self.pl_info["acc"]
         PASSWORD = self.pl_info["pw"]
         async with self.session() as session:
-            async with session.get(LOGIN_URL) as resp:
-                await resp.text()
-                self.cookies = resp.cookies
             payload = {
                 "account": NAME,
                 "password": PASSWORD,
             }
-            async with session.post(LOGIN_URL2, cookies=resp.cookies, data=payload) as rep:
+            async with session.post(LOGIN_URL2, data=payload) as rep:
                 resp2 = await rep.text()
                 if '"code":"OK"' not in resp2:
                     print(resp2)
                     raise ConnectionError(resp2)
-                a = "; ".join(f"{v.value}" for k, v in rep.cookies.items())
+                a = ";".join(f"{v.value}" for k, v in rep.cookies.items())
+            async with session.get('/api/users/session', cookies=rep.cookies) as rep:
+                resp2 = await rep.text()
+                if '"code":"OK"' not in resp2:
+                    print(resp2)
+                    raise ConnectionError(resp2)
         with suppress(Exception):
             await session.close()
         return a

@@ -2,14 +2,16 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:49:28
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-02-09 15:49:29
+# @Last Modified time: 2023-02-09 16:51:16
 import asyncio
 import logging
+from os.path import isfile
+
 from loguru import logger
 
 from lib.basic_aiohttp import AioConnection
 from lib.local_redis import redis_get, redis_set
-from os.path import isfile
+
 # # commented out function will be filtered
 # # def get_headers():
 # #     return {"User-Agent": "hrp"}
@@ -30,11 +32,12 @@ def get_backend_info(platform: str) -> 1:
 def get_tt_backend_info(platform: str) -> 1:
     file_path = f'.temp/{platform}_acc.tmp'
     if isfile(file_path):
-        return 0
+        return 'ok'
     session = asyncio.run(AioConnection(platform)._login_tt())
     with open(file_path,'w',encoding='utf8') as f:
-        f.write(session)
+        f.write(f'{session}')
     return 1
+
 
 @logger.catch
 def get_connect_sid(platform: str) -> str:

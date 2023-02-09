@@ -1,9 +1,10 @@
 # @Author: E-NoR
 # @Date:   2023-01-19 09:57:47
 # @Last Modified by:   E-NoR
-# @Last Modified time: 2023-01-30 13:37:46
+# @Last Modified time: 2023-02-09 16:45:39
 # override: true
 # headers:
 #     Cookie: $headers_cookie
 cookies:
     connect.sid: "$connect_sid"
+    Authorization: token

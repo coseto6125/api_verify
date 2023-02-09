@@ -1,0 +1,37 @@
+﻿{
+  "config": {
+    "name": "001_運營管理_01代理數據總覽_03_导出汇报数据EXCEL",
+    "base_url": "http://192.168.23.114:9202",
+    "variables": {
+      "_getinfo": "${get_tt_backend_info(TT)}",
+      "connect_sid": "${get_connect_sid(TT)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/api/statisAgentInfo/reportExport",
+      "request": {
+        "method": "GET",
+        "url": "/api/statisAgentInfo/reportExport",
+        "params": {
+          "month": "2023-02"
+        },
+        "headers": {
+          "Authorization": "token",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "Authorization": "token",
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        }
+      ]
+    }
+  ]
+}
