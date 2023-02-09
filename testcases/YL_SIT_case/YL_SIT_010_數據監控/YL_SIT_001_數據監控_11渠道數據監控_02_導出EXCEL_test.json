@@ -1,0 +1,12 @@
+﻿{
+  "config": {
+    "name": "001_數據監控_渠道數據監控_02_導出EXCELfilter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": []
+}

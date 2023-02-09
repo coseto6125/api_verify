@@ -1,0 +1,46 @@
+﻿{
+  "config": {
+    "name": "001_數據監控_房間追放監控_02_導出EXCELfilter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/DMRoomBanishMonitor/exportData",
+      "request": {
+        "method": "GET",
+        "url": "/DMRoomBanishMonitor/exportData",
+        "params": {
+          "beginDate": "2023-02-06",
+          "endDate": "2023-02-07",
+          "gameType": "",
+          "kdvalue": "0",
+          "roomType": "",
+          "type": "0"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+﻿{
+  "config": {
+    "name": "001_數據監控_盈利報表_02_導出EXCELfilter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/DMWinAndLoseReport/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/DMWinAndLoseReport/ExportData",
+        "params": {
+          "RoomType": "",
+          "accounts": "1_qa0203_fgsz_002",
+          "beginDate": "2023-02-06 16:41",
+          "endDate": "2023-02-07 16:41",
+          "kindId": "",
+          "rnd": "0.10972859898643517",
+          "serverId": ""
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    }
+  ]
+}

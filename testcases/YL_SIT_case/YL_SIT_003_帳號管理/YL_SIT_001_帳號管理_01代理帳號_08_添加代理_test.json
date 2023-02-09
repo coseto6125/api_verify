@@ -1,0 +1,208 @@
+﻿{
+  "config": {
+    "name": "001_帳號管理_代理帳號_08_添加代理filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/proxyaccount/getproxybyid",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccount/getproxybyid",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "ChannelID": "1"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccount/addProxy",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccount/addProxy",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "AccountingFor": "10",
+          "BusinessAccount": "",
+          "CallBackLink": "",
+          "CallBackURL": "",
+          "Cooperation": "0",
+          "Deskey": "CWOSDW7VXS44C54K",
+          "DisBusinessAccount": "1",
+          "Disablelinecode": "0",
+          "Forbidden": "0",
+          "HotGameShow": "0",
+          "IsShowRevenue": "0",
+          "Mark": "",
+          "Md5key": "UX22IV59TG3UAPMV",
+          "NickName": "",
+          "ProxyAccount": "20230202",
+          "ProxyPawd": "03f9aeef097033d251225d1247f9dd65",
+          "ProxyRevenue": "",
+          "ProxyURL": "",
+          "Pushbutton": "0",
+          "SingleOrSystem": "1",
+          "Timezone": "0",
+          "WhiteIP": "",
+          "Winloschart": "1",
+          "banckstatus": "0",
+          "bridgeMoneyType": "1",
+          "feedEnabled": "0",
+          "id": "",
+          "isPayPopUps": "1",
+          "isautopay": "0",
+          "language": "1",
+          "logourl": "",
+          "parentId": "1",
+          "sel_MoneyType": "1",
+          "sportAccountingFor": "",
+          "walletType": "0"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccount/addipwhitelis",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccount/addipwhitelis",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "IPAddress": "",
+          "ProxyAccount": "20230202",
+          "insertId": "168"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccount/addproxygames",
+      "request": {
+        "method": "POST",
+        "url": "/proxyaccount/addproxygames",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "insertId": "168",
+          "walletType": "0"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/proxyaccount/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/proxyaccount/GetList",
+        "params": {
+          "Accounts": "",
+          "BeginDate": "2023-01-23",
+          "ChannelID": "",
+          "EndDate": "2023-02-01",
+          "NickName": "",
+          "limit": "50",
+          "offset": "0",
+          "proxyUID": "",
+          "proxyUIDS": ""
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    }
+  ]
+}

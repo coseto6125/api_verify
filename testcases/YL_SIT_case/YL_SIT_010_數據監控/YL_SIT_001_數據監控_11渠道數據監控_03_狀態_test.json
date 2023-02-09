@@ -1,0 +1,59 @@
+﻿{
+  "config": {
+    "name": "001_數據監控_渠道數據監控_03_狀態filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/DMLinecodecount/Statuschange",
+      "request": {
+        "method": "POST",
+        "url": "/DMLinecodecount/Statuschange",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "ChannelID": "1",
+          "Mark": "test",
+          "checkallgame": "0",
+          "checkallgamecheck": "0",
+          "checkeds": "0,",
+          "checklinecode": "1",
+          "linecode": "1_1_simonlinecode"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 500
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charset=utf-8"
+        },
+        {
+          "check": "content.code",
+          "assert": "eq",
+          "expect": 99
+        },
+        {
+          "check": "content.errmsg",
+          "assert": "eq",
+          "expect": "UnKnown_Error"
+        }
+      ]
+    }
+  ]
+}

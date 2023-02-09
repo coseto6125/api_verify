@@ -1,0 +1,65 @@
+﻿{
+  "config": {
+    "name": "001_體育相關_注單信息_01_搜索filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/SBOorderDetail/InitData",
+      "request": {
+        "method": "GET",
+        "url": "/SBOorderDetail/InitData",
+        "params": {
+          "_": "1675677651807",
+          "account": "",
+          "agent": "21002",
+          "beginDate": "2022-10-01 18:00",
+          "endDate": "2022-10-31 18:00",
+          "limit": "20",
+          "lineCode": "",
+          "mark": "0",
+          "offset": "0",
+          "selTimeType": "1",
+          "status_winLost": "0",
+          "transferCode": "",
+          "type": "orderDetail"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/json; charset=utf-8"
+        },
+        {
+          "check": "content.code",
+          "assert": "eq",
+          "expect": 1
+        },
+        {
+          "check": "content.total",
+          "assert": "eq",
+          "expect": 0
+        }
+      ]
+    }
+  ]
+}

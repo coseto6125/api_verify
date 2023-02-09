@@ -1,0 +1,84 @@
+﻿{
+  "config": {
+    "name": "001_帳號管理_會員帳號_10_清攜百人filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/memberInfo/ClearMoneyHundred",
+      "request": {
+        "method": "POST",
+        "url": "/memberInfo/ClearMoneyHundred",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        },
+        "body": {
+          "Spwd": "03f9aeef097033d251225d1247f9dd65",
+          "account": "1_luka20230202",
+          "flag": "1"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    },
+    {
+      "name": "/memberinfo/GetList",
+      "request": {
+        "method": "GET",
+        "url": "/memberinfo/GetList",
+        "params": {
+          "Accounts": "1_luka20230202",
+          "BeginDate": "2023-02-01",
+          "EndDate": "2023-02-02",
+          "Proxyaccount": "1",
+          "_": "1675320072367",
+          "hidserch": "1",
+          "limit": "10",
+          "offset": "0",
+          "selstatus": "-1",
+          "total": "1"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain"
+        }
+      ]
+    }
+  ]
+}

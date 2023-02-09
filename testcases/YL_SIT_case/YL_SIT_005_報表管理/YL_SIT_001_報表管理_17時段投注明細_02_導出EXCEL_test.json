@@ -1,0 +1,44 @@
+﻿{
+  "config": {
+    "name": "001_報表管理_時段投注明細_02_導出EXCELfilter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/betDetial/ExportData",
+      "request": {
+        "method": "GET",
+        "url": "/betDetial/ExportData",
+        "params": {
+          "accounts": "170_qapeter_Jsbjl_004",
+          "beginDate": "2023-02-02 18:00",
+          "channelID": "170",
+          "endDate": "2023-02-02 18:10"
+        },
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }
+      ]
+    }
+  ]
+}

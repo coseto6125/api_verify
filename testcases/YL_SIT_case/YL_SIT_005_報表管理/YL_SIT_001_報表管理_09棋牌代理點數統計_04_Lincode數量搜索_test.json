@@ -1,0 +1,54 @@
+﻿{
+  "config": {
+    "name": "001_報表管理_棋牌代理點數統計_04_Lincode數量搜索filter=True",
+    "base_url": "http://192.168.33.5:9100",
+    "variables": {
+      "_getinfo": "${get_backend_info(YL)}",
+      "connect_sid": "${get_connect_sid(YL)}",
+      "headers_cookie": "${get_headers_cookie(YL)}"
+    }
+  },
+  "teststeps": [
+    {
+      "name": "/proxyCardStatis/InitLinecode",
+      "request": {
+        "method": "GET",
+        "url": "/proxyCardStatis/InitLinecode",
+        "params": {
+          "_": "1675663856425",
+          "beginDate": "2023-02-05",
+          "channelId": "1",
+          "channelName": "simonagent",
+          "endDate": "2023-02-06",
+          "kindId": "",
+          "limit": "20",
+          "linecode": "",
+          "offset": "0",
+          "searchType": "EST",
+          "total": "0",
+          "typeAllId": "3"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+          "X-Requested-With": "XMLHttpRequest"
+        },
+        "cookies": {
+          "connect.sid": "$connect_sid"
+        }
+      },
+      "validate": [
+        {
+          "check": "status_code",
+          "assert": "eq",
+          "expect": 200
+        },
+        {
+          "check": "headers.\"Content-Type\"",
+          "assert": "eq",
+          "expect": "text/plain;charset=utf-8;"
+        }
+      ]
+    }
+  ]
+}
